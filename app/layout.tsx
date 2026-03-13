@@ -1,8 +1,21 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import "./globals.css";
 import Script from "next/script";
+import { Playfair_Display, Inter } from "next/font/google";
 
-export const metadata: Metadata = {
+const playfair = Playfair_Display({ 
+  subsets: ["latin"], 
+  weight: ["400", "700"], 
+  display: "swap" 
+});
+
+const inter = Inter({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600"], 
+  display: "swap" 
+});
+
+export const metadata = {
   title: "Tristan Parajes — Graphic Designer",
   description: "Tristan Parajes is a graphic designer based in the Philippines specialising in brand identity, editorial design and digital campaigns.",
   openGraph: {
@@ -15,16 +28,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${playfair.className} ${inter.className}`}>
       <body>
         {children}
-        {/* GSAP loaded via CDN — same as original <script src> tags in <head> */}
+        {/* GSAP loaded via CDN */}
         <Script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" strategy="beforeInteractive" />
         <Script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" strategy="beforeInteractive" />
       </body>
