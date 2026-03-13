@@ -5,8 +5,16 @@ import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 
 // Load fonts with next/font — no <link> tags needed
-const inter = Inter({ subsets: ["latin"], weight: ["300","400","500","600"], display: "swap" });
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400","700"], display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300","400","500","600"],
+  display: "swap",
+});
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400","700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Tristan Parajes — Graphic Designer",
@@ -22,8 +30,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.className} ${playfair.className}`}>
-      <body>
+    <html lang="en" className={inter.className}>
+      <body className={playfair.className}>
         {children}
 
         {/* GSAP scripts */}
