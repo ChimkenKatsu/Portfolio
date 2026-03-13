@@ -17,8 +17,10 @@ const config: Config = {
         gold:    "#C9A84C",
       },
       fontFamily: {
-        serif: ["'Playfair Display'", "Georgia", "serif"],
-        sans:  ["'Inter'", "Arial", "sans-serif"],
+        fontFamily: {
+  serif: ["var(--font-serif)"],
+  sans: ["var(--font-sans)"],
+},
       },
       letterSpacing: {
         widest2: "0.28em",
