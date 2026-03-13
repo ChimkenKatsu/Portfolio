@@ -4,7 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 
-// Configure Google Fonts using Next.js 14 font optimization
+// Load fonts with next/font — no <link> tags needed
 const inter = Inter({ subsets: ["latin"], weight: ["300","400","500","600"], display: "swap" });
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400","700"], display: "swap" });
 
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
 
-        {/* GSAP scripts loaded before interactive for animations */}
+        {/* GSAP scripts */}
         <Script
           src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"
           strategy="beforeInteractive"
